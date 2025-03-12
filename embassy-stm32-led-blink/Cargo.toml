@@ -1,0 +1,34 @@
+[package]
+name = "embassy-stm32-led-blink"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bxcan = "0.8.0"
+cortex-m = { version = "0.7.6", features = ["inline-asm", "critical-section-single-core"] }
+cortex-m-rt = "0.7"
+defmt = "0.3.10"
+defmt-rtt = "0.4.1"
+embassy-executor = { version = "0.7.0", features = [
+  "task-arena-size-32768",
+  "arch-cortex-m",
+  "executor-thread",
+  "executor-interrupt",
+  "defmt"
+]}
+embassy-stm32 = { version = "0.2.0", features = ["memory-x", "stm32f446re", "defmt", "time-driver-tim9", "unstable-pac"] }
+embassy-time = { version = "0.4.0", features = ["defmt", "tick-hz-1_000_000"] }
+panic-probe = { version = "0.3.1", features = ["defmt", "print-defmt"] }
+# critical-section = "1.1"
+
+
+# Set the default for dependencies.
+[profile.dev.package."*"]
+opt-level = "s"
+
+[profile.release]
+codegen-units = 1
+incremental = false
+debug = true
+lto = true
+opt-level = "s"
