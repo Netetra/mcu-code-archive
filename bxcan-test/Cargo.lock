@@ -43,6 +43,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "bxcan-test"
+version = "0.1.0"
+dependencies = [
+ "bxcan",
+ "cortex-m",
+ "cortex-m-rt",
+ "defmt",
+ "defmt-rtt",
+ "nb 1.1.0",
+ "panic-probe",
+ "stm32f4xx-hal",
+]
+
+[[package]]
 name = "cortex-m"
 version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -360,20 +374,6 @@ dependencies = [
  "cortex-m",
  "cortex-m-rt",
  "vcell",
-]
-
-[[package]]
-name = "stm32f446-project-template"
-version = "0.1.0"
-dependencies = [
- "bxcan",
- "cortex-m",
- "cortex-m-rt",
- "defmt",
- "defmt-rtt",
- "nb 1.1.0",
- "panic-probe",
- "stm32f4xx-hal",
 ]
 
 [[package]]

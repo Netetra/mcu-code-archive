@@ -41,6 +41,7 @@ fn main() -> ! {
         stm32f4xx_hal::pac::NVIC::unmask(stm32f4xx_hal::interrupt::CAN1_RX1);
     }
     nb::block!(can.enable_non_blocking()).ok();
+    info!("bxCAN initialized.");
     let mut delay = cp.SYST.delay(&clocks);
     free(|cs| {
         CAN.borrow(cs).replace(Some(can));
