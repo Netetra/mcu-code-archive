@@ -52,14 +52,14 @@ fn main() -> ! {
     // let frame = Frame::new_data(StandardId::new(0x002).unwrap(), [1, 2, 3]);
 
     loop {
-        led_tx.set_high();
-        free(|cs| {
-            if let Some(can) = CAN.borrow(cs).borrow_mut().deref_mut() {
-                nb::block!(can.transmit(&frame)).unwrap();
-            }
-        });
-        led_tx.set_low();
-        delay.delay_ms(500);
+        // led_tx.set_high();
+        // free(|cs| {
+        //     if let Some(can) = CAN.borrow(cs).borrow_mut().deref_mut() {
+        //         nb::block!(can.transmit(&frame)).unwrap();
+        //     }
+        // });
+        // led_tx.set_low();
+        // delay.delay_ms(500);
     }
 }
 

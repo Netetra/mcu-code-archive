@@ -336,6 +336,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "embassy-stm32-led-blink"
+version = "0.1.0"
+dependencies = [
+ "bxcan",
+ "cortex-m",
+ "cortex-m-rt",
+ "defmt",
+ "defmt-rtt",
+ "embassy-executor",
+ "embassy-stm32",
+ "embassy-time",
+ "panic-probe",
+]
+
+[[package]]
 name = "embassy-sync"
 version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -643,21 +658,6 @@ name = "rand_core"
 version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
-
-[[package]]
-name = "robocon-stm32-f446re-template"
-version = "0.1.0"
-dependencies = [
- "bxcan",
- "cortex-m",
- "cortex-m-rt",
- "defmt",
- "defmt-rtt",
- "embassy-executor",
- "embassy-stm32",
- "embassy-time",
- "panic-probe",
-]
 
 [[package]]
 name = "rustc_version"

@@ -22,7 +22,7 @@ async fn main(_spawner: Spawner) {
     let dp = embassy_stm32::init(device_config);
     info!("Embassy initialized.");
 
-    let led_pin = PwmPin::new_ch1(dp.PA5, OutputType::PushPull);
+    let led_pin = PwmPin::new_ch1(dp.PA0, OutputType::PushPull);
     let pwm = SimplePwm::new(
         dp.TIM2,
         Some(led_pin),
@@ -35,15 +35,15 @@ async fn main(_spawner: Spawner) {
     let mut led = pwm.split().ch1;
     led.enable();
 
-    let mut can = bxcan::Can::builder(dp.CAN1.can((gpiob.pb9, gpiob.pb8)))
-        .set_bit_timing(0x001c_0003)
-        .set_loopback(false)
-        .set_silent(false)
-        .leave_disabled();
-    let mut filters = can.modify_filters();
-    filters.enable_bank(0, bxcan::Fifo::Fifo0, bxcan::filter::Mask32::accept_all());
-    filters.enable_bank(0, bxcan::Fifo::Fifo1, bxcan::filter::Mask32::accept_all());
-    drop(filters);
+    // let mut can = bxcan::Can::builder(dp.CAN1.can((gpiob.pb9, gpiob.pb8)))
+    //     .set_bit_timing(0x001c_0003)
+    //     .set_loopback(false)
+    //     .set_silent(false)
+    //     .leave_disabled();
+    // let mut filters = can.modify_filters();
+    // filters.enable_bank(0, bxcan::Fifo::Fifo0, bxcan::filter::Mask32::accept_all());
+    // filters.enable_bank(0, bxcan::Fifo::Fifo1, bxcan::filter::Mask32::accept_all());
+    // drop(filters);
 
     loop {
         for i in 0..100 {
