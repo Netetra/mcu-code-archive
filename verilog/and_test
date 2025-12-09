@@ -1,0 +1,48 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)" "(v12_0-dirty)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/ivl/system.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/ivl/va_math.vpi";
+S_0x55a49ad90140 .scope module, "and_test" "and_test" 2 1;
+ .timescale 0 0;
+L_0x55a49adb3f70 .functor AND 1, v0x55a49ad91b80_0, v0x55a49adb3de0_0, C4<1>, C4<1>;
+v0x55a49ad91b80_0 .var "a", 0 0;
+v0x55a49adb3de0_0 .var "b", 0 0;
+v0x55a49adb3ea0_0 .net "out", 0 0, L_0x55a49adb3f70;  1 drivers
+    .scope S_0x55a49ad90140;
+T_0 ;
+    %vpi_call 2 8 "$dumpfile", "and_test.vcd" {0 0 0};
+    %vpi_call 2 9 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55a49ad90140 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a49ad91b80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a49adb3de0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55a49ad91b80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a49ad91b80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55a49adb3de0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55a49ad91b80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a49ad91b80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55a49adb3de0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "and_test.v";
